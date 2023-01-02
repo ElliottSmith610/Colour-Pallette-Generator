@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h2>Upload an image to find the top 10 colours</h2>
+{% if error %}
+<p style="color: red;"> {{ error }}</p>
+{% endif %}
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+</form>
+
+{% if colours %}
+    <hr style="">
+    <h2>Top 10 Colours</h2>
+    <ol>
+    {% for colour in colours%}
+        <li><p style="background-color: rgb{{ colour }}; color: rgb{{ colour }}; width: 6%; margin:0;"> Bread </p></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+
+</body>
+</html>
